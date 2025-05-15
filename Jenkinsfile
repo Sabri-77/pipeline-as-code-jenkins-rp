@@ -59,29 +59,31 @@ pipeline {
 
     }   
 }
-stage('Environment Analaysis') {
 
-Parallel {
+         stage('Environment Analaysis') {
 
-stage('Printing All Global Variables') {
-steps {
-sh """
-env
-"""
-}
-}
+         Parallel {
 
-stage('Execute Shell') {
-steps {
-sh 'echo "Hello Student, Thanks for keeping up!"'
-}
-}
+         stage('Printing All Global Variables') {
+           steps {
+               sh """
+               env
+               """
+                 }
+            }
 
-stage('Print ENV variable') {
-steps {
-sh "echo ${APP_ENV}"
-}
-}
+         stage('Execute Shell') {
+            steps {
+               sh 'echo "Hello Student, Thanks for keeping up!"'
+                }
+            }
 
-}
+         stage('Print ENV variable') {
+            steps {
+               sh "echo ${APP_ENV}"
+
+            }
+        }
+
+    }   
 }
